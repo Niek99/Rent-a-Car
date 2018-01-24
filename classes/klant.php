@@ -13,26 +13,20 @@ class klant
         //$DBconnect->ConnectToDB("root", "", "Rent-a-Car");
         ?>
 
-        require_once ("classes/klant.php");
-        $inloggen = new klant();
-        <?php
-        $laatzien = $inloggen->login();
-        echo $laatzien;
-        ?>
-
-
         <ul class="dropdown-menu">
             <div class="modal-dialog">
                 <div class="loginmodal-container">
-                    <h1>Login to Your Account</h1><br>
+                    <h1>Log hier in op je account</h1><br>
                     <form>
-                        <input type="text" name="user" placeholder="Username">
-                        <input type="password" name="pass" placeholder="Password">
-                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                        <ul>
+                            <li><input type="text" name="user" placeholder="Gebruikersnaam"></li>
+                            <li><input type="password" name="pass" placeholder="Wachtwoord"></li>
+                            <li><input type="submit" name="login" class="login loginmodal-submit" value="Login"></li>
+                        </ul>
                     </form>
 
                     <div class="login-help">
-                        <a href="#">Register</a> - <a href="#">Forgot Password</a>
+                        <a href="register.php">Register</a> - <a href="#">Forgot Password</a>
                     </div>
                 </div>
             </div>
