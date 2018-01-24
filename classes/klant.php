@@ -9,9 +9,38 @@
 class klant
 {
     function login(){
-        $DBconnect = new Database();
-        $DBconnect->ConnectToDB("root", "", "Rent-a-Car");
+       // $DBconnect = new Database();
+        //$DBconnect->ConnectToDB("root", "", "Rent-a-Car");
+        ?>
+
+        require_once ("classes/klant.php");
+        $inloggen = new klant();
+        <?php
+        $laatzien = $inloggen->login();
+        echo $laatzien;
+        ?>
+
+
+        <ul class="dropdown-menu">
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Login to Your Account</h1><br>
+                    <form>
+                        <input type="text" name="user" placeholder="Username">
+                        <input type="password" name="pass" placeholder="Password">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                    </form>
+
+                    <div class="login-help">
+                        <a href="#">Register</a> - <a href="#">Forgot Password</a>
+                    </div>
+                </div>
+            </div>
+        </ul>
+
+        <?php
     }
+
     function registreer(){
         ?>
         <html>
@@ -90,8 +119,6 @@ class klant
             }
 
             //voeg alles toe aan de data base. zorg er ook voor dat het veilig is.
-            //var_dump($mysqli->insert( 'klant', array( 'Naam' => $naam, 'Adres' => $adres, 'Postcode' => $postcode, 'Woonplaats' => $woonplaats, 'Email_adres' => $mail, 'Telefoon_nummer' => $telefoon, 'Wachtwoord' => $wachtwoord)));
-            //$query = "INSERT INTO klant'('Naam', 'Adres', 'Postcode', 'Woonplaats', 'Email_adres', 'Telefoon_nummer', 'Wachtwoord') VALUES('$naam', '$adres', '$postcode', '$woonplaats', '$mail', '$telefoon', '$wachtwoord')";
             $invoegen = mysqli_query($mysqli, "INSERT INTO klant(Klant_nummer, Naam, Adres, Postcode, Woonplaats, Email_adres, Telefoon_nummer, Wachtwoord) VALUES('$goedenummer', '$naam', '$adres', '$postcode', '$woonplaats', '$mail', '$telefoon', '$wachtwoord')");
             if($invoegen)
             {
@@ -108,10 +135,12 @@ class klant
 
         }
     }
+
     function loguit(){
         $DBconnect = new Database();
         $DBconnect->ConnectToDB("root", "", "Rent-a-Car");
     }
+
     function profiel (){
         $DBconnect = new Database();
         $DBconnect->ConnectToDB("root", "", "Rent-a-Car");
