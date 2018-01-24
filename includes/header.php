@@ -1,6 +1,5 @@
 <?php
-    include "../../assets/css/style.css";
-    include "../../assets/css/styles.min.css";
+    include "head.php";
 ?>
 <div>
     <nav class="navbar navbar-default navigation-clean" style="background-color:rgb(73,72,118);">
