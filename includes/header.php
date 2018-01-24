@@ -2,7 +2,7 @@
     include "head.php";
 ?>
 <head>
-    <link rel="stylesheet" src="assets/css/dropdown.css">
+    <link rel="stylesheet" href="assets/css/dropdown.css">
 </head>
 <div>
     <nav class="navbar navbar-default navigation-clean" style="background-color:rgb(73,72,118);">
@@ -16,15 +16,17 @@
                     <li role="presentation"><a href="over_ons.php" style="color:rgb(255,255,255);">Over ons</a></li>
                     <li role="presentation"><a href="contact.php" style="color:rgb(255,255,255);">Contact</a></li>
                     <li class="dropdown">
-                        <a href="#" style="color:rgb(255,255,255);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Dropdown <span class="caret"></span></a>
+                        <a href="#" style="color:rgb(255,255,255);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Inloggen/registreren <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <div class="modal-dialog">
                                 <div class="loginmodal-container">
-                                    <h1>Login to Your Account</h1><br>
+                                    <h1>Log hier in op je account</h1><br>
                                     <form>
-                                        <input type="text" name="user" placeholder="Username">
-                                        <input type="password" name="pass" placeholder="Password">
-                                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                                        <ul>
+                                            <li><input type="text" name="user" placeholder="Gebruikersnaam"></li>
+                                            <li><input type="password" name="pass" placeholder="Wachtwoord"></li>
+                                            <li><input type="submit" name="login" class="login loginmodal-submit" value="Login"></li>
+                                        </ul>
                                     </form>
 
                                     <div class="login-help">
