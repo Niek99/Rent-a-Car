@@ -94,7 +94,7 @@ class admin
                     $_SESSION['admin_usr_id'] = $row['Behandelaar_nummer'];
                     $_SESSION['admin_usr_name'] = $row['Naam_behandelaar'];
 
-
+                    header("Refresh:0");
 
                 } else {
                     $errormsg = "Wacht of gebruikersnaam fout.";

@@ -22,8 +22,21 @@
                         <?php
                         session_start();
                         if(isset($_SESSION['usr_id'])!="") {
-
                             echo '<a href="#" style="color:rgb(255,255,255);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >' . $_SESSION['usr_name'] . '<span class="caret"></span></a>';
+                           ?>
+                            <ul class="dropdown-menu">
+                                <div class="modal-dialog">
+                                    <div class="loginmodal-container">
+                                        <li role="presentation"><a href="?hello=true" style="color:rgb(0,0,0);"> hier om uit te loggen</a></li>
+                                    </div>
+                                </div>
+                            </ul>
+                            <?php
+                            if (isset($_GET['hello'])) {
+                                unset($_SESSION['usr_id']);
+                                unset($_SESSION['usr_name']);
+                                header("Refresh:0");
+                            }
                         }
                         else {
                             ?>

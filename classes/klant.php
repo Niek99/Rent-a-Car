@@ -57,7 +57,7 @@ class klant
                     $_SESSION['usr_id'] = $row['Klant_nummer'];
                     $_SESSION['usr_name'] = $row['Naam'];
 
-                    //header("localtion: index.php");
+
                 } else {
                     $errormsg = "Wacht of gebruikersnaam fout.";
                     echo $errormsg;

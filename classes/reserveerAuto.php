@@ -16,11 +16,13 @@ class reserveerAuto
         $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
         // Maak hier de factuur aan in de database. Op dit moment hebben we nog niet meer dan 1 behandelaar. dus je kan standaard dat nummer invoegen.
-        if(!isset($_SESSION['Factuur'])) {
+        //if(!isset($_SESSION['Factuur'])) {
             if (isset($_SESSION['usr_id']) != "") {
                 $vandaag = date('Y-m-d');
                 $klantnummer = $_SESSION['usr_id'];
                 $behandelaar = "12345";
+                $_SESSION['datum'] = $vandaag;
+
 
                 // maak hier een session waarmee je laat zien dat de factuur gemaakt is.
 
@@ -36,7 +38,7 @@ class reserveerAuto
             } else {
                 echo "log in om verder te kunnen gaan.";
             }
-        }
+        //}
 
         // doe hier de query en zorg ervoor dat de totaal prijs bepaald wordt.
         $result = mysqli_query($mysqli,"SELECT * FROM auto WHERE Kenteken = '" . $kenteken . "'");
@@ -67,7 +69,9 @@ class reserveerAuto
         $reserveer = mysqli_query($mysqli,"INSERT INTO reservering(Factuurnummer, Kenteken, Vanaf_datum, Eind_datum, Totaal_prijs) VALUES('$factuur', '$kenteken', '$vanafdatum', '$totdatum', '$totaalprijs')");
 
         if($reserveer){
-            echo "de reservering is goed gegaan";
+            ?>
+            <a href="afrekenen.php"><button value="Klik hier om naar de factuur te gaan">Klik hier om naar de factuur te gaan</button></a>
+            <?php
         }
 
 
