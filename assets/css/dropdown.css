@@ -1,3 +1,10 @@
+.modal-dialog{
+    width: 365px !important;
+    margin: 0px auto !important;
+}
+.dropdown-menu{
+    background: none;
+}
 .loginmodal-container {
     padding: 30px;
     max-width: 350px;
