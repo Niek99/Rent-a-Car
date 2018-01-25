@@ -57,14 +57,28 @@
                                 <h3>Audi A4 2016</h3>
                                 <p>Maar 500 euro per maand!</p>
                             </div>
-                            <form>
+                            <form action="" method="post" fun>
                                 <label for="from">Van</label>
-                                <input type="text" id="from" name="from"><br>
+                                <input type="date" format="yyyy-mm-dd" id="" name="from"><br>
                                 <label for="to">Tot:</label>
-                                <input type="text" id="to" name="to"><br>
-                                <input type="hidden">11-PO-TT</input><br>
-                                <button style="margin-top: 5px;" type="submit">Verder</button>
+                                <input type="date" format="yyyy-mm-dd" id="" name="to"><br>
+                                <input type="hidden" name="kenteken" value="11-PO-TT">
+                                <input style="margin-top: 5px;" type="submit" name="verzenden" value="Verder">
                             </form>
+                            <?php
+                                if(isset($_POST['verzenden'])){
+                                    $vanafdatum = $_POST['from'];
+                                    $totdatum = $_POST['to'];
+                                    $kenteken = $_POST['kenteken'];
+
+                                    //roep hier de functie aan die de reservering toe gaat voegen.
+                                    require_once ("classes/reserveerAuto.php");
+                                    $registreren = new reserveerAuto();
+                                    $laatzien = $registreren->toevoegen($vanafdatum, $totdatum, $kenteken);
+                                    echo $laatzien;
+                                }
+                            ?>
+
                         </div>
                     </div>
             </div>
