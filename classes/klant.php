@@ -17,7 +17,7 @@ class klant
             <div class="modal-dialog">
                 <div class="loginmodal-container">
                     <h1>Log hier in op je account</h1><br>
-                    <form>
+                    <form action="" method="post" name="loginform">
                         <ul>
                             <li><input type="text" name="user" placeholder="Gebruikersnaam"></li>
                             <li><input type="password" name="pass" placeholder="Wachtwoord"></li>
@@ -31,8 +31,83 @@ class klant
                 </div>
             </div>
         </ul>
-
         <?php
+        session_start();
+
+        $error_msg = "";
+
+        //Kijk eerst of de persoon niet al is ingelogd.
+        if (!isset($_SESSION['user_id']))
+        {
+            if (isset($_POST['login']))
+            {
+
+                $user_username = mysqli_real_escape_string($_POST['user']);
+                $user_password = mysqli_real_escape_string($_POST['pass']);
+
+                require_once("Database.php");
+                $DBconnect = new Database();
+                $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
+
+                //hier gaat hij kijken of de gegevens wel echt in de database staan.
+
+                if (!empty($user_username) && !empty($password))
+                {
+
+                    $query = "SELECT Klant_nummer, Naam FROM klant WHERE Email_adres = '$user_username' AND Wachtwoord '$user_password'";
+
+                    $res = mysqli_query($mysqli, $query);
+
+                    //login is ok so set the user ID and username cookies, redirect to homepage
+                    if (mysqli_num_rows($res) == 1)
+                    {
+                        $row = mysqli_fetch_array($res);
+
+                        $_SESSION['user_id'] = $row['userid'];
+                        $_SESSION['user'] = $row['username'];
+                        setcookie('userid', $row['userid'], time() + (60 * 60 * 24 * 30), "/");
+                        setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30), "/");
+                        setcookie('email', $row['email'], time() + (60 * 60 * 24 * 30), "/");
+                        setcookie('password', $row['password'], time() + (60 * 60 * 24 * 30), "/");
+
+                        //redirect after successful login
+                        header("Location: index.php");
+                        echo mysqli_error($mysqli);
+
+                    }
+                    else
+                    {
+                        //the username and password are incorrect so set error message
+                        $error_msg = 'Sorry, you must enter a valid username and password to log in. <a href="Signup.php">Please sign up!</a>';
+
+                        header("Location: index.php");
+                        echo mysqli_error($mysqli);
+
+                    }
+                }
+                else
+                {
+                    $error_msg = 'Please enter a username and password to log in. <a href="Signup.php">Please sign up!</a>';
+
+                    header("Location: index.php");
+                    echo mysqli_error($mysqli);
+
+                }
+
+            }
+        }
+
+        /*
+        if(isset($_POST['login'])){
+            // set de variabelen waar hij op moet gaan zoeken in de data base.
+            $username = $_POST['user'];
+            $password = $_POST['pass'];
+
+            $query =
+
+
+        }*/
+
     }
 
     function registreer(){
@@ -87,7 +162,7 @@ class klant
         </html>
         <?php
         if(isset($_POST['verzend'])){
-            error_reporting(0);
+            //error_reporting(0);
             // set alle variablen zodat ze aan de database toegevoegd kunnen worden.
             $naam = $_POST['naam'];
             $adres = $_POST['adres'];
@@ -103,21 +178,29 @@ class klant
             $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
             //Maak hier het getal aan voor het klanten nummer. en controleer of deze al in gebruik is
+            /*$cijfer = "00000000";
             $query = "SELECT Klant_nummer FROM klant";
             $results=mysqli_query($mysqli, $query);
-            for ($i=0;$i<$results;$i++) {
-                do {
-                    $nummer = rand(999999999, 10000000000);
-                } while ($nummer == $results);
-                $goedenummer = $nummer;
+            $resultss = end($results);
+            $startcount = (int)$cijfer;
+            $resultaat = (int)$resultss;
+            if($startcount <= $resultaat ){
+                $resultaat + 1;
+                $eind = (string)$resultaat;
             }
+            else{
+                $resultaat = $cijfer;
+            }
+            echo $eind;*/
 
             //voeg alles toe aan de data base. zorg er ook voor dat het veilig is.
-            $invoegen = mysqli_query($mysqli, "INSERT INTO klant(Klant_nummer, Naam, Adres, Postcode, Woonplaats, Email_adres, Telefoon_nummer, Wachtwoord) VALUES('$goedenummer', '$naam', '$adres', '$postcode', '$woonplaats', '$mail', '$telefoon', '$wachtwoord')");
+            $invoegen = mysqli_query($mysqli, "INSERT INTO klant(Naam, Adres, Postcode, Woonplaats, Email_adres, Telefoon_nummer, Wachtwoord) VALUES('$naam', '$adres', '$postcode', '$woonplaats', '$mail', '$telefoon', '$wachtwoord')");
+            //mysqli_error($mysqli);
             if($invoegen)
             {
-                echo "Uw gegevens zijn succesvol toegevoegd.";
-
+                ?>
+                Uw gegevens zijn succesvol toegevoegd
+                <?php
             }
             else
             {
