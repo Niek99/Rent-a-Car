@@ -2,6 +2,7 @@
     include "head.php";
     require_once ("classes/klant.php");
     $inloggen = new klant();
+    //error_reporting(0);
 ?>
 <head>
     <link rel="stylesheet" href="assets/css/dropdown.css">
@@ -18,10 +19,21 @@
                     <li role="presentation"><a href="over_ons.php" style="color:rgb(255,255,255);">Over ons</a></li>
                     <li role="presentation"><a href="contact.php" style="color:rgb(255,255,255);">Contact</a></li>
                     <li class="dropdown">
-                        <a href="#" style="color:rgb(255,255,255);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Inloggen/registreren <span class="caret"></span></a>
                         <?php
+                        session_start();
+                        if(isset($_SESSION['usr_id'])!="") {
+
+                            echo '<a href="#" style="color:rgb(255,255,255);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >' . $_SESSION['usr_name'] . '<span class="caret"></span></a>';
+                        }
+                        else {
+                            ?>
+                            <a href="#" style="color:rgb(255,255,255);" class="dropdown-toggle" data-toggle="dropdown"
+                               role="button" aria-haspopup="true" aria-expanded="false">Inloggen/registreren <span
+                                        class="caret"></span></a>
+                            <?php
                             $laatzien = $inloggen->login();
                             echo $laatzien;
+                        }
                         ?>
                     </li>
                 </ul>

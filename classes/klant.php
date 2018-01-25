@@ -15,49 +15,51 @@ class klant
             echo $_COOKIE['username'];
         }
         else{*/
-        ?>
-        <ul class="dropdown-menu">
-            <div class="modal-dialog">
-                <div class="loginmodal-container">
-                    <h1>Log hier in op je account</h1><br>
-                    <form action="" method="post" name="loginform">
-                        <ul>
-                            <li><input type="text" name="user" placeholder="Gebruikersnaam"></li>
-                            <li><input type="password" name="pass" placeholder="Wachtwoord"></li>
-                            <li><input type="submit" name="login" class="login loginmodal-submit" value="Login"></li>
-                        </ul>
-                    </form>
+        if(isset($_SESSION['usr_id'])!="") {
+            echo $_SESSION['usr_name'];
+        }
+        else {
+            ?>
+            <ul class="dropdown-menu">
+                <div class="modal-dialog">
+                    <div class="loginmodal-container">
+                        <h1>Log hier in op je account</h1><br>
+                        <form action="" method="post" name="loginform">
+                            <ul>
+                                <li><input type="text" name="user" placeholder="Gebruikersnaam"></li>
+                                <li><input type="password" name="pass" placeholder="Wachtwoord"></li>
+                                <li><input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                                </li>
+                            </ul>
+                        </form>
 
-                    <div class="login-help">
-                        <a href="register.php">Register</a> - <a href="#">Forgot Password</a>
+                        <div class="login-help">
+                            <a href="register.php">Register</a> - <a href="#">Forgot Password</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </ul>
-        <?php
-        session_start();
-        if(isset($_SESSION['usr_id'])!="") {
-            header("Location: index.php");
-        }
+            </ul>
+            <?php
 
-        require_once("Database.php");
-        $DBconnect = new Database();
-        $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
-        //check if form is submitted
-        if (isset($_POST['login'])) {
+            require_once("Database.php");
+            $DBconnect = new Database();
+            $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
-            $email = mysqli_real_escape_string($mysqli, $_POST['user']);
-            $password = mysqli_real_escape_string($mysqli, $_POST['pass']);
-            $result = mysqli_query($mysqli, "SELECT * FROM klant WHERE Email_adres = '".$email."' and Wachtwoord = '". $password."'");
+            //check if form is submitted
+            if (isset($_POST['login'])) {
 
-            if ($row = mysqli_fetch_array($result)) {
-                $_SESSION['usr_id'] = $row['Klant_nummer'];
-                $_SESSION['usr_name'] = $row['Naam'];
+                $email = mysqli_real_escape_string($mysqli, $_POST['user']);
+                $password = mysqli_real_escape_string($mysqli, $_POST['pass']);
+                $result = mysqli_query($mysqli, "SELECT * FROM klant WHERE Email_adres = '" . $email . "' and Wachtwoord = '" . $password . "'");
 
-            } else {
-                $errormsg = "Wacht of gebruikersnaam fout.";
-                echo $errormsg;
+                if ($row = mysqli_fetch_array($result)) {
+                    $_SESSION['usr_id'] = $row['Klant_nummer'];
+                    $_SESSION['usr_name'] = $row['Naam'];
+                } else {
+                    $errormsg = "Wacht of gebruikersnaam fout.";
+                    echo $errormsg;
+                }
             }
         }
         /*else{
@@ -74,7 +76,6 @@ class klant
 
 
         }*/
-
     }
 
     function registreer(){
