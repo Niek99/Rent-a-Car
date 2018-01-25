@@ -20,8 +20,8 @@
                     <li class="dropdown">
                         <a href="#" style="color:rgb(255,255,255);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Inloggen/registreren <span class="caret"></span></a>
                         <?php
-                        $laatzien = $inloggen->login();
-                        echo $laatzien;
+                            $laatzien = $inloggen->login();
+                            echo $laatzien;
                         ?>
                     </li>
                 </ul>
