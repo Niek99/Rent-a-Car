@@ -201,7 +201,7 @@ class klant
                 ?>
                     <div class="ingelogd">
                         <h1>U bent succesvol ingelogd!</h1>
-                        <button>Klik hier om terug te gaan naar de homepagina!</button>
+                        <button class="btn btn-lg btn-info">Klik hier om terug te gaan naar de homepagina!</button>
                     </div>
 
                 <?php
