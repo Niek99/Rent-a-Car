@@ -15,6 +15,29 @@ class reserveerAuto
         $DBconnect = new Database();
         $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
+        // Maak hier de factuur aan in de database. Op dit moment hebben we nog niet meer dan 1 behandelaar. dus je kan standaard dat nummer invoegen.
+        if(!isset($_SESSION['Factuur'])) {
+            if (isset($_SESSION['usr_id']) != "") {
+                $vandaag = date('Y-m-d');
+                $klantnummer = $_SESSION['usr_id'];
+                $behandelaar = "12345";
+
+                // maak hier een session waarmee je laat zien dat de factuur gemaakt is.
+
+
+                $result = mysqli_query($mysqli, "INSERT INTO factuur(Datum, Klant_nummer, Behandelaar_nummer) VALUES('$vandaag', '$klantnummer', '$behandelaar')");
+
+                if ($result) {
+
+                    $factuur_id = mysqli_insert_id($mysqli);
+                    $_SESSION['Factuur'] = $factuur_id;
+                }
+
+            } else {
+                echo "log in om verder te kunnen gaan.";
+            }
+        }
+
         // doe hier de query en zorg ervoor dat de totaal prijs bepaald wordt.
         $result = mysqli_query($mysqli,"SELECT * FROM auto WHERE Kenteken = '" . $kenteken . "'");
 
@@ -26,18 +49,29 @@ class reserveerAuto
         echo $dagprijsint . "<br>";
         $vanafdatumreken = strtotime($vanafdatum);
         $totdatumreken = strtotime($totdatum);
-        $days_between = ceil(abs($totdatumreken - $vanafdatumreken) / 86400);
+        $days_between = ceil(abs($totdatumreken - $vanafdatumreken) / 86400 + 1);
 
         echo $days_between . "<br>";
 
         $days_betweenreken = (int)$days_between;
         $totaalprijs = $days_betweenreken * $dagprijsint;
 
-        echo $totaalprijs . "<br>";
+        $factuur =  $_SESSION['Factuur'];
 
+        /*echo $factuur . "<br>";
+        echo $totaalprijs . "<br>";
         echo $vanafdatum . "<br>";
         echo $totdatum . "<br>";
-        echo $kenteken . "<br>";
+        echo $kenteken . "<br>";*/
+
+        $reserveer = mysqli_query($mysqli,"INSERT INTO reservering(Factuurnummer, Kenteken, Vanaf_datum, Eind_datum, Totaal_prijs) VALUES('$factuur', '$kenteken', '$vanafdatum', '$totdatum', '$totaalprijs')");
+
+        if($reserveer){
+            echo "de reservering is goed gegaan";
+        }
+
+
+
 
     }
     function GetPrice(){
