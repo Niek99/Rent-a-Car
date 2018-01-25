@@ -7,7 +7,7 @@
         include "includes/slider.php";
     ?>
     <div class="container">
-        <div class="container1">
+        <div style="overflow: hidden"class="container1">
             <div class="row">
                 <div class="col-sm-3 col-md-3">
                     <div  class="thumbnail">
@@ -15,7 +15,7 @@
                         <div class="caption">
                             <h3>Thumbnail label</h3>
                             <p>...</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Nu lenen!</a> <a href="#" class="btn btn-default" role="button">Meer informatie</a></p>
+                            <p><a href="bestel.php" class="btn btn-primary" role="button">Nu lenen!</a> <a href="product.php" class="btn btn-default" role="button">Meer informatie</a></p>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                         <div class="caption">
                             <h3>Thumbnail label</h3>
                             <p>...</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Nu lenen!</a> <a href="#" class="btn btn-default" role="button">Meer informatie</a></p>
+                            <p><a href="bestel.php" class="btn btn-primary" role="button">Nu lenen!</a> <a href="product.php" class="btn btn-default" role="button">Meer informatie</a></p>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         <div class="caption">
                             <h3>Thumbnail label</h3>
                             <p>...</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Nu lenen!</a> <a href="#" class="btn btn-default" role="button">Meer informatie</a></p>
+                            <p><a href="bestel.php" class="btn btn-primary" role="button">Nu lenen!</a> <a href="product.php" class="btn btn-default" role="button">Meer informatie</a></p>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         <div class="caption">
                             <h3>Thumbnail label</h3>
                             <p>...</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Nu lenen!</a> <a href="#" class="btn btn-default" role="button">Meer informatie</a></p>
+                            <p><a href="bestel.php" class="btn btn-primary" role="button">Nu lenen!</a> <a href="product.php" class="btn btn-default" role="button">Meer informatie</a></p>
                         </div>
                     </div>
                 </div>
