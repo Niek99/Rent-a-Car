@@ -2,6 +2,40 @@
     include "includes/header.php";
     include "includes/head.php";
 ?>
+<script>
+    $( function() {
+        var dateFormat = "mm/dd/yy",
+            from = $( "#from" )
+                .datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 3
+                })
+                .on( "change", function() {
+                    to.datepicker( "option", "minDate", getDate( this ) );
+                }),
+            to = $( "#to" ).datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                numberOfMonths: 3
+            })
+                .on( "change", function() {
+                    from.datepicker( "option", "maxDate", getDate( this ) );
+                });
+
+        function getDate( element ) {
+            var date;
+            try {
+                date = $.datepicker.parseDate( dateFormat, element.value );
+            } catch( error ) {
+                date = null;
+            }
+
+            return date;
+        }
+    } );
+</script>
+
 <html>
     <body>
         <div class="container">
@@ -25,10 +59,15 @@
                             <div class="caption" style="text-align: center">
                                 <h3>Audi A4 2016</h3>
                                 <p>Maar 500 euro per maand!</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Nu lenen!</a></p>
                             </div>
+                            <form>
+                                <label for="from">Van</label>
+                                <input type="text" id="from" name="from"><br>
+                                <label for="to">Tot:</label>
+                                <input type="text" id="to" name="to"><br>
+                                <button style="margin-top: 5px;" type="submit">Verder</button>
+                            </form>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

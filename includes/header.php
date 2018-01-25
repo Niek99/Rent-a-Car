@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/dropdown.css">
 </head>
 <div>
-    <nav class="navbar navbar-default navigation-clean" style="background-color:rgb(73,72,118);">
+    <nav class="navbar navbar-default navigation-clean" style="background-color: #0081cc;">
         <div class="container">
             <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.php" style="color:rgba(255,255,255,0.843137);">Rent-a-Car</a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>

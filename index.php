@@ -5,7 +5,8 @@
         include "includes/header.php";
         include "includes/slider.php";
     ?>
-        <div class="container">
+    <div class="container">
+        <div class="container1">
             <div class="row">
                 <div class="col-sm-3 col-md-3">
                     <div  class="thumbnail">
@@ -48,6 +49,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
     <?php
