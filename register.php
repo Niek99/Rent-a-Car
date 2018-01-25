@@ -1,3 +1,4 @@
+
 <?php
     require_once ("classes/klant.php");
     $registreren = new klant();
