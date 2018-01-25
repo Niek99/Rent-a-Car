@@ -47,7 +47,7 @@
                                 <label>Wachtwoord:</label>
                                 <input type="password" placeholder="Wachtwoord" class="form-control" name="wachtwoord">
                             </div>
-                            <button type="submit" name="verzend" class="btn btn-lg btn-info">Registreren</button>
+                            <button type="submit" name="verzend" class="btn btn-lg btn-info">Naar betalen!</button>
                         </div>
                         </div>
                     </form>

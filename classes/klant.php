@@ -84,10 +84,12 @@ class klant
         ?>
         <html>
         <?php
-        include "includes/header.php";
+            include "includes/header.php";
+            include "includes/head.php";
         ?>
         <body>
         <div class="container col-sm-12">
+            <div class="container1">
             <form action="" method="post" name="registerform">
                 <div class="col-sm-8">
                     <div class="row">
@@ -126,6 +128,7 @@ class klant
                     </div>
                     <button type="submit" name="verzend" class="btn btn-lg btn-info">Registreren</button>
                 </div>
+            </div>
             </form>
         </div>
         </body>

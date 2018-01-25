@@ -19,9 +19,9 @@
                 <div class="col-md-3 col-md-pull-6 col-sm-4 item">
                     <h3>Rent-a-Car</h3>
                     <ul>
-                        <li><a href="#">Over ons</a></li>
-                        <li><a href="#">Ons team</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="over_ons.php">Over ons</a></li>
+                        <li><a href="over_ons.php">Ons team</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-md-12 col-sm-4 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
