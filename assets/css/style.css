@@ -65,6 +65,12 @@
         padding-right: 0;
         padding-left: 0;
     }
+    .lenen_box{
+        position: fixed;
+        top: 50px;
+        right: 0px;
+        min-width: 350px;
+    }
     .header {
         margin-bottom: 30px;
     }
@@ -79,6 +85,8 @@
 }
 .product_text{
     float: left;
+    margin-top: 5px;
+
 }
 .ingelogd{
     padding: 10px;
@@ -96,7 +104,9 @@
     border-radius: 5px;
     border: solid lightgrey 2px;
 }
-
+.lenen_box{
+    float: left;
+}
 
 
 
