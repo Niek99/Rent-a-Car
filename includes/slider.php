@@ -24,10 +24,25 @@
                 <div class="row">
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_left">
-                        <h1 data-animation="animated zoomInRight">Bootstrap Carousel</h1>
-                        <p data-animation="animated fadeInLeft">Bootstrap carousel now touch enable slide.</p>
-                        <a href="http://webalgusto.com/" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">select one</a>
-                        <a href="http://webalgusto.com/" target="_blank"  class="btn btn-primary" data-animation="animated fadeInRight">select two</a>
+
+                        <div data-animation="animated zoomInRight" class="col-sm-2 col-md-2">
+
+                            <h1 style="color: white">Audi A4</h1><br>
+                            <div  class="thumbnail">
+
+                                <div class="caption" style="text-align: center">
+                                    <h3>Audi A4 2016</h3>
+                                    <p>Maar 500 euro per maand!</p>
+                                </div>
+                                <form>
+                                    <label for="from">Van</label>
+                                    <input type="text" id="from" name="from"><br>
+                                    <label for="to">Tot:</label>
+                                    <input type="text" id="to" name="to"><br>
+                                    <button style="margin-top: 5px;" type="submit">Verder</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,11 +73,26 @@
             <img src="assets/img/Slider03.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
             <div class="bs-slider-overlay"></div>
             <!-- Slide Text Layer -->
-            <div class="slide-text slide_style_right">
-                <h1 data-animation="animated zoomInLeft">Beautiful Animations</h1>
-                <p data-animation="animated fadeInRight">Lots of css3 Animations to make slide beautiful .</p>
-                <a href="http://webalgusto.com/" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">select one</a>
-                <a href="http://webalgusto.com/" target="_blank" class="btn btn-primary" data-animation="animated fadeInRight">select two</a>
+            <div class="slide-text slide_style_left">
+
+                <div data-animation="animated zoomInRight" class="col-sm-2 col-md-2">
+
+                    <h1 style="color: white">Audi A4</h1><br>
+                    <div  class="thumbnail">
+
+                        <div class="caption" style="text-align: center">
+                            <h3>Audi A4 2016</h3>
+                            <p>Maar 500 euro per maand!</p>
+                        </div>
+                        <form>
+                            <label for="from">Van</label>
+                            <input type="text" id="from" name="from"><br>
+                            <label for="to">Tot:</label>
+                            <input type="text" id="to" name="to"><br>
+                            <button style="margin-top: 5px;" type="submit">Verder</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- End of Slide -->
