@@ -84,7 +84,7 @@ while ($row = mysqli_fetch_object($auto)) {
                         <td><?php echo $_SESSION['prijsperdag']?></td>
                         <td><?php echo $_SESSION['totaal']?></td>
                     </tr>
-                    
+
                 </table><br><br>
                 <p>
                     Betalingen dienen plaats te vinden veertien dagen voor de aanvang van de gereserveerde periode<br>
@@ -92,8 +92,7 @@ while ($row = mysqli_fetch_object($auto)) {
                     Indien er gereserveerd is binnen veerdien dagen voor de aanvang van de gereserveerde periode,<br>
                     Dient de betaling direct plaats te vinden.
                 </p>
-
             </div>
-        </body>
+        </body >
     </html>
 
