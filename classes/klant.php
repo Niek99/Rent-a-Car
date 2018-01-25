@@ -11,8 +11,11 @@ class klant
     function login(){
        // $DBconnect = new Database();
         //$DBconnect->ConnectToDB("root", "", "Rent-a-Car");
+        /*if(isset($_COOKIE['userid'])){
+            echo $_COOKIE['username'];
+        }
+        else{*/
         ?>
-
         <ul class="dropdown-menu">
             <div class="modal-dialog">
                 <div class="loginmodal-container">
@@ -33,69 +36,33 @@ class klant
         </ul>
         <?php
         session_start();
+        if(isset($_SESSION['usr_id'])!="") {
+            header("Location: index.php");
+        }
 
-        $error_msg = "";
+        require_once("Database.php");
+        $DBconnect = new Database();
+        $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
-        //Kijk eerst of de persoon niet al is ingelogd.
-        if (!isset($_SESSION['user_id']))
-        {
-            if (isset($_POST['login']))
-            {
+        //check if form is submitted
+        if (isset($_POST['login'])) {
 
-                $user_username = mysqli_real_escape_string($_POST['user']);
-                $user_password = mysqli_real_escape_string($_POST['pass']);
+            $email = mysqli_real_escape_string($mysqli, $_POST['user']);
+            $password = mysqli_real_escape_string($mysqli, $_POST['pass']);
+            $result = mysqli_query($mysqli, "SELECT * FROM klant WHERE Email_adres = '".$email."' and Wachtwoord = '". $password."'");
 
-                require_once("Database.php");
-                $DBconnect = new Database();
-                $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
+            if ($row = mysqli_fetch_array($result)) {
+                $_SESSION['usr_id'] = $row['Klant_nummer'];
+                $_SESSION['usr_name'] = $row['Naam'];
 
-                //hier gaat hij kijken of de gegevens wel echt in de database staan.
-
-                if (!empty($user_username) && !empty($password))
-                {
-
-                    $query = "SELECT Klant_nummer, Naam FROM klant WHERE Email_adres = '$user_username' AND Wachtwoord '$user_password'";
-
-                    $res = mysqli_query($mysqli, $query);
-
-                    //login is ok so set the user ID and username cookies, redirect to homepage
-                    if (mysqli_num_rows($res) == 1)
-                    {
-                        $row = mysqli_fetch_array($res);
-
-                        $_SESSION['user_id'] = $row['userid'];
-                        $_SESSION['user'] = $row['username'];
-                        setcookie('userid', $row['userid'], time() + (60 * 60 * 24 * 30), "/");
-                        setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30), "/");
-                        setcookie('email', $row['email'], time() + (60 * 60 * 24 * 30), "/");
-                        setcookie('password', $row['password'], time() + (60 * 60 * 24 * 30), "/");
-
-                        //redirect after successful login
-                        header("Location: index.php");
-                        echo mysqli_error($mysqli);
-
-                    }
-                    else
-                    {
-                        //the username and password are incorrect so set error message
-                        $error_msg = 'Sorry, you must enter a valid username and password to log in. <a href="Signup.php">Please sign up!</a>';
-
-                        header("Location: index.php");
-                        echo mysqli_error($mysqli);
-
-                    }
-                }
-                else
-                {
-                    $error_msg = 'Please enter a username and password to log in. <a href="Signup.php">Please sign up!</a>';
-
-                    header("Location: index.php");
-                    echo mysqli_error($mysqli);
-
-                }
-
+            } else {
+                $errormsg = "Wacht of gebruikersnaam fout.";
+                echo $errormsg;
             }
         }
+        /*else{
+            echo "Er is helaas iets fout gegaan probeer het later opnieuw";
+        }*/
 
         /*
         if(isset($_POST['login'])){
