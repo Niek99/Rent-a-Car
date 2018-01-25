@@ -11,91 +11,60 @@ class klant
     function login(){
        // $DBconnect = new Database();
         //$DBconnect->ConnectToDB("root", "", "Rent-a-Car");
-        ?>
+        /*if(isset($_COOKIE['userid'])){
+            echo $_COOKIE['username'];
+        }
+        else{*/
+        if(isset($_SESSION['usr_id'])!="") {
+            echo $_SESSION['usr_name'];
+        }
+        else {
+            ?>
+            <ul class="dropdown-menu">
+                <div class="modal-dialog">
+                    <div class="loginmodal-container">
+                        <h1>Log hier in op je account</h1><br>
+                        <form action="" method="post" name="loginform">
+                            <ul>
+                                <li><input type="text" name="user" placeholder="Gebruikersnaam"></li>
+                                <li><input type="password" name="pass" placeholder="Wachtwoord"></li>
+                                <li><input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                                </li>
+                            </ul>
+                        </form>
 
-        <ul class="dropdown-menu">
-            <div class="modal-dialog">
-                <div class="loginmodal-container">
-                    <h1>Log hier in op je account</h1><br>
-                    <form action="" method="post" name="loginform">
-                        <ul>
-                            <li><input type="text" name="user" placeholder="Gebruikersnaam"></li>
-                            <li><input type="password" name="pass" placeholder="Wachtwoord"></li>
-                            <li><input type="submit" name="login" class="login loginmodal-submit" value="Login"></li>
-                        </ul>
-                    </form>
-
-                    <div class="login-help">
-                        <a href="register.php">Register</a> - <a href="#">Forgot Password</a>
+                        <div class="login-help">
+                            <a href="register.php">Register</a> - <a href="#">Forgot Password</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </ul>
-        <?php
-        session_start();
+            </ul>
+            <?php
 
-        $error_msg = "";
 
-        //Kijk eerst of de persoon niet al is ingelogd.
-        if (!isset($_SESSION['user_id']))
-        {
-            if (isset($_POST['login']))
-            {
+            require_once("Database.php");
+            $DBconnect = new Database();
+            $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
-                $user_username = mysqli_real_escape_string($_POST['user']);
-                $user_password = mysqli_real_escape_string($_POST['pass']);
+            //check if form is submitted
+            if (isset($_POST['login'])) {
 
-                require_once("Database.php");
-                $DBconnect = new Database();
-                $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
+                $email = mysqli_real_escape_string($mysqli, $_POST['user']);
+                $password = mysqli_real_escape_string($mysqli, $_POST['pass']);
+                $result = mysqli_query($mysqli, "SELECT * FROM klant WHERE Email_adres = '" . $email . "' and Wachtwoord = '" . $password . "'");
 
-                //hier gaat hij kijken of de gegevens wel echt in de database staan.
-
-                if (!empty($user_username) && !empty($password))
-                {
-
-                    $query = "SELECT Klant_nummer, Naam FROM klant WHERE Email_adres = '$user_username' AND Wachtwoord '$user_password'";
-
-                    $res = mysqli_query($mysqli, $query);
-
-                    //login is ok so set the user ID and username cookies, redirect to homepage
-                    if (mysqli_num_rows($res) == 1)
-                    {
-                        $row = mysqli_fetch_array($res);
-
-                        $_SESSION['user_id'] = $row['userid'];
-                        $_SESSION['user'] = $row['username'];
-                        setcookie('userid', $row['userid'], time() + (60 * 60 * 24 * 30), "/");
-                        setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30), "/");
-                        setcookie('email', $row['email'], time() + (60 * 60 * 24 * 30), "/");
-                        setcookie('password', $row['password'], time() + (60 * 60 * 24 * 30), "/");
-
-                        //redirect after successful login
-                        header("Location: index.php");
-                        echo mysqli_error($mysqli);
-
-                    }
-                    else
-                    {
-                        //the username and password are incorrect so set error message
-                        $error_msg = 'Sorry, you must enter a valid username and password to log in. <a href="Signup.php">Please sign up!</a>';
-
-                        header("Location: index.php");
-                        echo mysqli_error($mysqli);
-
-                    }
+                if ($row = mysqli_fetch_array($result)) {
+                    $_SESSION['usr_id'] = $row['Klant_nummer'];
+                    $_SESSION['usr_name'] = $row['Naam'];
+                } else {
+                    $errormsg = "Wacht of gebruikersnaam fout.";
+                    echo $errormsg;
                 }
-                else
-                {
-                    $error_msg = 'Please enter a username and password to log in. <a href="Signup.php">Please sign up!</a>';
-
-                    header("Location: index.php");
-                    echo mysqli_error($mysqli);
-
-                }
-
             }
         }
+        /*else{
+            echo "Er is helaas iets fout gegaan probeer het later opnieuw";
+        }*/
 
         /*
         if(isset($_POST['login'])){
@@ -107,7 +76,6 @@ class klant
 
 
         }*/
-
     }
 
     function registreer(){
