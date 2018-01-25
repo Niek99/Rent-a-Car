@@ -199,7 +199,11 @@ class klant
             if($invoegen)
             {
                 ?>
-                Uw gegevens zijn succesvol toegevoegd
+                    <div class="ingelogd">
+                        <h1>U bent succesvol ingelogd!</h1>
+                        <button>Klik hier om terug te gaan naar de homepagina!</button>
+                    </div>
+
                 <?php
             }
             else
