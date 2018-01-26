@@ -28,20 +28,34 @@
 
                         <div data-animation="animated zoomInRight" class="col-sm-2 col-md-2">
 
-                            <h1 style="color: white">Audi A4</h1><br>
+                            <h1 style="color: white">BMW 323</h1><br>
                             <div  class="thumbnail">
 
                                 <div class="caption" style="text-align: center">
-                                    <h3>Audi A4 2016</h3>
-                                    <p>Maar 500 euro per maand!</p>
+                                    <h3>BWM 323 (benzine)</h3>
+                                    <p>Maar 85 euro per dag</p>
                                 </div>
                                 <form>
+                                    <input type="hidden" value="18-YY-GG" name="kenteken">
                                     <label for="from">Van</label>
                                     <input type="date" id="from" name="from"><br>
                                     <label for="to">Tot:</label>
                                     <input type="date" id="to" name="to"><br>
-                                    <button class="btn btn-primary" style="margin-top: 5px;" type="submit">Verder</button>
+                                    <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden">Verder</button>
                                 </form>
+                                <?php
+                                if(isset($_POST['verzenden'])){
+                                    $vanafdatum = $_POST['from'];
+                                    $totdatum = $_POST['to'];
+                                    $kenteken = $_POST['kenteken'];
+
+                                    //roep hier de functie aan die de reservering toe gaat voegen.
+                                    require_once ("classes/reserveerAuto.php");
+                                    $registreren = new reserveerAuto();
+                                    $laatzien = $registreren->toevoegen($vanafdatum, $totdatum, $kenteken);
+                                    echo $laatzien;
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -54,27 +68,41 @@
         <div class="item">
 
             <!-- Slide Background -->
-            <img src="assets/img/Slider02.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
+            <img src="http://cdn.bmwblog.com/wp-content/uploads/2015/08/2016-bmw-730d-images-1900x1200-08.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
             <div class="bs-slider-overlay"></div>
             <!-- Slide Text Layer -->
             <div class="slide-text slide_style_left">
 
                 <div data-animation="animated zoomInRight" class="col-sm-2 col-md-2">
 
-                    <h1 style="color: white">Audi A4</h1><br>
+                    <h1 style="color: white">BMW 730</h1><br>
                     <div  class="thumbnail">
 
                         <div class="caption" style="text-align: center">
-                            <h3>Audi A4 2016</h3>
-                            <p>Maar 500 euro per maand!</p>
+                            <h3>BMW 730 (Diesel v12)</h3>
+                            <p>Maar 85 euro per dag</p>
                         </div>
                         <form>
+                            <input type="hidden" value="11-PO-TT" name="kenteken">
                             <label for="from">Van</label>
                             <input type="date" id="from" name="from"><br>
                             <label for="to">Tot:</label>
                             <input type="date" id="to" name="to"><br>
-                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit">Verder</button>
+                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden1">Verder</button>
                         </form>
+                        <?php
+                        if(isset($_POST['verzenden1'])){
+                            $vanafdatum = $_POST['from'];
+                            $totdatum = $_POST['to'];
+                            $kenteken = $_POST['kenteken'];
+
+                            //roep hier de functie aan die de reservering toe gaat voegen.
+                            require_once ("classes/reserveerAuto.php");
+                            $registreren = new reserveerAuto();
+                            $laatzien = $registreren->toevoegen($vanafdatum, $totdatum, $kenteken);
+                            echo $laatzien;
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -93,20 +121,34 @@
 
                 <div data-animation="animated zoomInRight" class="col-sm-2 col-md-2">
 
-                    <h1 style="color: white">Audi A4</h1><br>
+                    <h1 style="color: white">BMW 525</h1><br>
                     <div  class="thumbnail">
 
                         <div class="caption" style="text-align: center">
-                            <h3>Audi A4 2016</h3>
-                            <p>Maar 500 euro per maand!</p>
+                            <h3>BMW 525 (turbodiesel)</h3>
+                            <p>Maar 100 euro per dag</p>
                         </div>
                         <form>
+                            <input type="hidden" value="23-67-RW" name="kenteken">
                             <label for="from">Van</label>
                             <input type="date" id="from" name="from"><br>
                             <label for="to">Tot:</label>
                             <input type="date" id="to" name="to"><br>
-                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit">Verder</button>
+                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden2">Verder</button>
                         </form>
+                        <?php
+                        if(isset($_POST['verzenden2'])){
+                            $vanafdatum = $_POST['from'];
+                            $totdatum = $_POST['to'];
+                            $kenteken = $_POST['kenteken'];
+
+                            //roep hier de functie aan die de reservering toe gaat voegen.
+                            require_once ("../classes/reserveerAuto.php");
+                            $registreren = new reserveerAuto();
+                            $laatzien = $registreren->toevoegen($vanafdatum, $totdatum, $kenteken);
+                            echo $laatzien;
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
