@@ -8,6 +8,7 @@
 
 class klant
 {
+
     function login(){
        // $DBconnect = new Database();
         //$DBconnect->ConnectToDB("root", "", "Rent-a-Car");
@@ -56,7 +57,7 @@ class klant
                 if ($row = mysqli_fetch_array($result)) {
                     $_SESSION['usr_id'] = $row['Klant_nummer'];
                     $_SESSION['usr_name'] = $row['Naam'];
-
+                    header("refresh: 0");
 
                 } else {
                     $errormsg = "Wacht of gebruikersnaam fout.";
@@ -95,36 +96,36 @@ class klant
                     <div class="row">
                         <div class="col-sm-4 form-group">
                             <label>Naam:</label>
-                            <input type="text" placeholder="Naam" class="form-control" name="naam">
+                            <input type="text" placeholder="Naam" class="form-control" name="naam" required>
                         </div>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Adres:</label>
-                        <input type="text" placeholder="Adres" class="form-control" name="adres">
+                        <input type="text" placeholder="Adres" class="form-control" name="adres" required>
                     </div>
                     <div class="row">
                         <div class="col-sm-4 form-group">
                             <label>Postcode:</label>
-                            <input type="text" placeholder="Postcode" class="form-control" name="postcode">
+                            <input type="text" placeholder="Postcode" class="form-control" name="postcode" required>
                         </div>
                         <div class="col-sm-4 form-group">
                             <label>Woonplaats:</label>
-                            <input type="text" placeholder="Woonplaats" class="form-control" name="woonplaats">
+                            <input type="text" placeholder="Woonplaats" class="form-control" name="woonplaats" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4 form-group">
                             <label>Email adres:</label>
-                            <input type="email" placeholder="Email" class="form-control" name="mail">
+                            <input type="email" placeholder="Email" class="form-control" name="mail" required>
                         </div>
                         <div class="col-sm-4 form-group">
                             <label>Telefoon nummer:</label>
-                            <input type="text" placeholder="1111111111" class="form-control" name="telefoon">
+                            <input type="text" placeholder="1111111111" class="form-control" name="telefoon" required>
                         </div>
                     </div>
                     <div class="col-sm-4 form-group">
                         <label>Wachtwoord:</label>
-                        <input type="password" placeholder="Wachtwoord" class="form-control" name="wachtwoord">
+                        <input type="password" placeholder="Wachtwoord" class="form-control" name="wachtwoord" required>
                     </div>
                     <button type="submit" name="verzend" class="btn btn-lg btn-info">Registreren</button>
                 </div>
@@ -169,8 +170,10 @@ class klant
             //voeg alles toe aan de data base. zorg er ook voor dat het veilig is.
             $invoegen = mysqli_query($mysqli, "INSERT INTO klant(Naam, Adres, Postcode, Woonplaats, Email_adres, Telefoon_nummer, Wachtwoord) VALUES('$naam', '$adres', '$postcode', '$woonplaats', '$mail', '$telefoon', '$wachtwoord')");
             //mysqli_error($mysqli);
-            if($invoegen)
+            if($invoegen == "1")
             {
+                    $_SESSION['usr_id'] = mysqli_insert_id($mysqli);
+                    $_SESSION['usr_name'] = $naam;
                 ?>
                     <div class="ingelogd">
                         <h1>U bent succesvol ingelogd!</h1>
