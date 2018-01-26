@@ -48,12 +48,12 @@ class reserveerAuto
         }
 
         $dagprijsint = (int)$dagprijs;
-        echo $dagprijsint . "<br>";
+        //echo $dagprijsint . "<br>";
         $vanafdatumreken = strtotime($vanafdatum);
         $totdatumreken = strtotime($totdatum);
         $days_between = ceil(abs($totdatumreken - $vanafdatumreken) / 86400 + 1);
 
-        echo $days_between . "<br>";
+        //echo $days_between . "<br>";
 
         $days_betweenreken = (int)$days_between;
         $totaalprijs = $days_betweenreken * $dagprijsint;

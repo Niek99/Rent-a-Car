@@ -27,15 +27,20 @@
                             <ul class="dropdown-menu">
                                 <div class="modal-dialog">
                                     <div class="loginmodal-container">
+                                        <li role="presentation"><a href="?winkelwagen=true" style="color:rgb(0,0,0); padding-bottom: 20px;">bekijk hier uw winkelwagen</a></li>
                                         <li role="presentation"><a href="?hello=true" style="color:rgb(0,0,0);"> hier om uit te loggen</a></li>
                                     </div>
                                 </div>
                             </ul>
                             <?php
+                            if (isset($_GET['winkelwagen'])) {
+                                header("refresh: 0");
+                            }
+
                             if (isset($_GET['hello'])) {
                                 unset($_SESSION['usr_id']);
                                 unset($_SESSION['usr_name']);
-                                header("Refresh:0");
+                                header("refresh: 0");
                             }
                         }
                         else {
