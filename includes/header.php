@@ -27,7 +27,8 @@
                             <ul class="dropdown-menu">
                                 <div class="modal-dialog">
                                     <div class="loginmodal-container">
-                                        <li role="presentation"><a href="?hello=true" style="color:rgb(0,0,0);"> hier om uit te loggen</a></li>
+                                        <li role="presentation"><a href="?winkelwagen=true" style="color:rgb(0,0,0); padding-bottom: 20px;">Bekijk hier uw winkelwagentje </a></li>
+                                        <li role="presentation"><a href="?hello=true" style="color:rgb(0,0,0);">Klik hier om uit te loggen</a></li>
                                     </div>
                                 </div>
                             </ul>
@@ -38,6 +39,12 @@
 
                                 header("refresh: 0");
                             }
+
+                            if (isset($_GET['winkelwagen'])) {
+
+                                header("Refresh:0; url=winkelwagen.php");
+                            }
+
                         }
                         else {
                             ?>

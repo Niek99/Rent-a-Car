@@ -38,45 +38,44 @@ class reserveerAuto
             } else {
                 echo "log in om verder te kunnen gaan.";
             }
+
+
+            // doe hier de query en zorg ervoor dat de totaal prijs bepaald wordt.
+            $result = mysqli_query($mysqli, "SELECT * FROM auto WHERE Kenteken = '" . $kenteken . "'");
+
+            while ($row = mysqli_fetch_object($result)) {
+                $dagprijs = $row->Prijs_per_dag;
+            }
+
+            $dagprijsint = (int)$dagprijs;
+            //echo $dagprijsint . "<br>";
+            $vanafdatumreken = strtotime($vanafdatum);
+            $totdatumreken = strtotime($totdatum);
+            $days_between = ceil(abs($totdatumreken - $vanafdatumreken) / 86400 + 1);
+
+            //echo $days_between . "<br>";
+
+            $days_betweenreken = (int)$days_between;
+            $totaalprijs = $days_betweenreken * $dagprijsint;
+
+            $factuur = $_SESSION['Factuur'];
+
+            /*echo $factuur . "<br>";
+            echo $totaalprijs . "<br>";
+            echo $vanafdatum . "<br>";
+            echo $totdatum . "<br>";
+            echo $kenteken . "<br>";*/
+
+            $reserveer = mysqli_query($mysqli, "INSERT INTO reservering(Factuurnummer, Kenteken, Vanaf_datum, Eind_datum, Totaal_prijs) VALUES('$factuur', '$kenteken', '$vanafdatum', '$totdatum', '$totaalprijs')");
+
+            if ($reserveer) {
+                ?>
+                <a href="afrekenen.php">
+                    <button value="Klik hier om naar de factuur te gaan">Klik hier om naar de factuur te gaan</button>
+                </a>
+                <?php
+            }
         }
-
-        // doe hier de query en zorg ervoor dat de totaal prijs bepaald wordt.
-        $result = mysqli_query($mysqli,"SELECT * FROM auto WHERE Kenteken = '" . $kenteken . "'");
-
-        while ($row = mysqli_fetch_object($result)) {
-            $dagprijs = $row->Prijs_per_dag;
-        }
-
-        $dagprijsint = (int)$dagprijs;
-        //echo $dagprijsint . "<br>";
-        $vanafdatumreken = strtotime($vanafdatum);
-        $totdatumreken = strtotime($totdatum);
-        $days_between = ceil(abs($totdatumreken - $vanafdatumreken) / 86400 + 1);
-
-        //echo $days_between . "<br>";
-
-        $days_betweenreken = (int)$days_between;
-        $totaalprijs = $days_betweenreken * $dagprijsint;
-
-        $factuur =  $_SESSION['Factuur'];
-
-        /*echo $factuur . "<br>";
-        echo $totaalprijs . "<br>";
-        echo $vanafdatum . "<br>";
-        echo $totdatum . "<br>";
-        echo $kenteken . "<br>";*/
-
-        $reserveer = mysqli_query($mysqli,"INSERT INTO reservering(Factuurnummer, Kenteken, Vanaf_datum, Eind_datum, Totaal_prijs) VALUES('$factuur', '$kenteken', '$vanafdatum', '$totdatum', '$totaalprijs')");
-
-        if($reserveer){
-            ?>
-            <a href="afrekenen.php"><button value="Klik hier om naar de factuur te gaan">Klik hier om naar de factuur te gaan</button></a>
-            <?php
-        }
-
-
-
-
     }
     function GetPrice(){
 
