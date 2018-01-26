@@ -42,6 +42,9 @@ while ($row = mysqli_fetch_object($auto)) {
         <body>
             <div class="container">
                 <h2>Factuur</h2>
+                <input type="button"
+                       onclick="window.print()"
+                       value="Factuur afdrukken"/>
                 <br>
                 <ul>
                     <li>Rent-a-Car</li>

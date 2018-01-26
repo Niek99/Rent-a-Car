@@ -37,9 +37,9 @@
                                 </div>
                                 <form>
                                     <label for="from">Van</label>
-                                    <input type="text" id="from" name="from"><br>
+                                    <input type="date" id="from" name="from"><br>
                                     <label for="to">Tot:</label>
-                                    <input type="text" id="to" name="to"><br>
+                                    <input type="date" id="to" name="to"><br>
                                     <button class="btn btn-primary" style="margin-top: 5px;" type="submit">Verder</button>
                                 </form>
                             </div>
@@ -70,9 +70,9 @@
                         </div>
                         <form>
                             <label for="from">Van</label>
-                            <input type="text" id="from" name="from"><br>
+                            <input type="date" id="from" name="from"><br>
                             <label for="to">Tot:</label>
-                            <input type="text" id="to" name="to"><br>
+                            <input type="date" id="to" name="to"><br>
                             <button class="btn btn-primary" style="margin-top: 5px;" type="submit">Verder</button>
                         </form>
                     </div>
@@ -102,9 +102,9 @@
                         </div>
                         <form>
                             <label for="from">Van</label>
-                            <input type="text" id="from" name="from"><br>
+                            <input type="date" id="from" name="from"><br>
                             <label for="to">Tot:</label>
-                            <input type="text" id="to" name="to"><br>
+                            <input type="date" id="to" name="to"><br>
                             <button class="btn btn-primary" style="margin-top: 5px;" type="submit">Verder</button>
                         </form>
                     </div>
