@@ -7,6 +7,19 @@
 <head>
     <link rel="stylesheet" href="assets/css/dropdown.css">
 </head>
+<script>
+    $(window).scroll(function(e){
+        var $el = $('.navbar');
+        var isPositionFixed = ($el.css('position') == 'fixed');
+        if ($(this).scrollTop() > 1 && !isPositionFixed){
+            $('.navbar').css({'position': 'fixed', 'top': '0px'});
+        }
+        if ($(this).scrollTop() < 1 && isPositionFixed)
+        {
+            $('.navbar').css({'position': 'static', 'top': '0px'});
+        }
+    });
+</script>
 <div>
     <nav class="navbar navbar-default navigation-clean" style="background-color: #0081cc;">
         <div class="container">
