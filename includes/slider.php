@@ -34,7 +34,7 @@
                                     <h3>BWM 323 (benzine)</h3>
                                     <p>Maar 85 euro per dag</p>
                                 </div>
-                                <form>
+                                <form action="" method="post">
                                     <input type="hidden" value="18-YY-GG" name="kenteken7">
                                     <label for="from">Van</label>
                                     <input type="date" id="from" name="from"><br>
@@ -81,7 +81,7 @@
                             <h3>BMW 730 (Diesel v12)</h3>
                             <p>Maar 85 euro per dag</p>
                         </div>
-                        <form>
+                        <form action="" method="post">
                             <input type="hidden" value="11-PO-TT" name="kenteken5">
                             <label for="from">Van</label>
                             <input type="date" id="from" name="from"><br>
@@ -127,7 +127,7 @@
                             <h3>BMW 525 (turbodiesel)</h3>
                             <p>Maar 100 euro per dag</p>
                         </div>
-                        <form>
+                        <form action="" method="post">
                             <input type="hidden" value="23-67-RW" name="kenteken6">
                             <label for="from">Van</label>
                             <input type="date" id="from" name="from"><br>

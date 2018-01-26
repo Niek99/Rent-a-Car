@@ -135,7 +135,9 @@ class admin
                     </div>
                 </div>
             </nav>
+            <div class='col-md-6'>
            <?php
+
                  $datumvandaag = date('Y-m-d');
                  echo "<h3>vandaag is het " . $datumvandaag . "</h3>";
                  require_once("Database.php");
@@ -166,6 +168,40 @@ class admin
                     <?php
                 }
             ?>
+            </table>
+            </div>
+            <div class="col-md-6">
+                <?php
+
+                $datummorgen = date("Y-m-d", strtotime("+1 day"));
+                echo "<h3>Morgen is het " . $datummorgen . "</h3>";
+                $result = mysqli_query($mysqli, "SELECT * FROM reservering WHERE Vanaf_datum = '" . $datummorgen . "'");
+                //$resultaat = mysqli_fetch_array($result)
+                ?>
+                <table border="1" class="">
+                    <tr>
+                        <th class="manage-column column-name column-primary">Factuurnummer</th>
+                        <th class="manage-column column-name column-primary">Kenteken</th>
+                        <th class="manage-column column-name column-primary">Vanaf datum</th>
+                        <th class="manage-column column-name column-primary">Tot datum</th>
+                        <th class="manage-column column-name column-primary">Totaal prijs</th>
+                    </tr>
+
+                    <?php
+                    while ($row = mysqli_fetch_object($result)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $row->Factuurnummer; ?></td>
+                            <td><?php echo $row->Kenteken; ?></td>
+                            <td><?php echo $row->Vanaf_datum; ?></td>
+                            <td><?php echo $row->Eind_datum; ?></td>
+                            <td><?php echo $row->Totaal_prijs . " Euro"; ?></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </table>
+            </div>
             </body>
             <?php
 

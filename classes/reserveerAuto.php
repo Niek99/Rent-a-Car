@@ -16,7 +16,7 @@ class reserveerAuto
         $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
         // Maak hier de factuur aan in de database. Op dit moment hebben we nog niet meer dan 1 behandelaar. dus je kan standaard dat nummer invoegen.
-        if(!isset($_SESSION['Factuur'])) {
+        //if(!isset($_SESSION['Factuur'])) {
             if (isset($_SESSION['usr_id']) != "") {
                 $vandaag = date('Y-m-d');
                 $klantnummer = $_SESSION['usr_id'];
@@ -76,7 +76,7 @@ class reserveerAuto
                 <?php
             }
         }
-    }
+    //}
     function GetPrice(){
 
     }

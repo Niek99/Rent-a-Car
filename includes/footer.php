@@ -12,7 +12,7 @@
                     <h3>Contact</h3>
                     <ul>
                         <li>Apeldoornseweg 12</a></li>
-                        <li>7217rk</a></li>
+                        <li>7217 RK</a></li>
                         <li>Apeldoorn</a></li>
                     </ul>
                 </div>
