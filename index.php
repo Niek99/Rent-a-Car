@@ -20,7 +20,7 @@
                                 <label for="to">Tot:</label>
                                 <input type="date" format="yyyy-mm-dd" id="" name="to"><br>
                                 <input type="hidden" name="kenteken" value="05-HJ-UF">
-                                <input class="btn btn-primary" type="submit" name="verzenden" value="Verder"><a href="product.php" class="btn btn-default" role="button">Meer informatie</a>
+                                <input class="btn btn-primary" type="submit" name="verzenden" value="Verder"><a href="mercedesclk.php" class="btn btn-default" role="button">Meer informatie</a>
                             </form>
                             <!--<p><a href="bestel.php" class="btn btn-primary" role="button">Nu lenen!</a> </p>-->
                         </div>
@@ -37,7 +37,7 @@
                                     <label for="to">Tot:</label>
                                     <input type="date" format="yyyy-mm-dd" id="" name="to"><br>
                                     <input type="hidden" name="kenteken" value="45-RR-76">
-                                    <input class="btn btn-primary" type="submit" name="verzenden" value="Verder"><a href="product.php" class="btn btn-default" role="button">Meer informatie</a>
+                                    <input class="btn btn-primary" type="submit" name="verzenden" value="Verder"><a href="rollsroyce.php" class="btn btn-default" role="button">Meer informatie</a>
                                 </form>
                                 <!--<p><a href="bestel.php" class="btn btn-primary" role="button">Nu lenen!</a> </p>-->
                             </div>
@@ -54,7 +54,7 @@
                                 <label for="to">Tot:</label>
                                 <input type="date" format="yyyy-mm-dd" id="" name="to"><br>
                                 <input type="hidden" name="kenteken" value="89-PE-TT">
-                                <input class="btn btn-primary" type="submit" name="verzenden" value="Verder"><a href="product.php" class="btn btn-default" role="button">Meer informatie</a>
+                                <input class="btn btn-primary" type="submit" name="verzenden" value="Verder"><a href="porsche911s.php" class="btn btn-default" role="button">Meer informatie</a>
                             </form>
                             <!--<p><a href="bestel.php" class="btn btn-primary" role="button">Nu lenen!</a> </p>-->
                         </div>
