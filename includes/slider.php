@@ -1,7 +1,6 @@
 <?php
     include"head.php";
 ?>
-
 <div id="bootstrap-touch-slider" class="carousel bs-slider slide  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="15000" >
 
     <!-- Indicators -->
