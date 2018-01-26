@@ -1,7 +1,20 @@
 .navbar{
     top:0;
     width:100%;
-    z-index:100;
+    z-index:1000;
+}
+.overons{
+    border-radius: 5px;
+    border: solid lightgrey 2px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+    padding: 10px;
+    margin: -10px -15px 15px -15px;
+}
+.overons1{
+    border-radius: 5psx;
+    border: solid lightgrey 2px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+    margin-left: -10px;
 }
 .thumbnail{
     text-align: center;
