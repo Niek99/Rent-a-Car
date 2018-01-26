@@ -132,8 +132,8 @@
 
 
                 </div>
-                <div class="col-sm-11 col-md-11">
-                <p>Bij Rent-a-Car Autoverhuur & Shortlease kunt u terecht voor het huren van een auto, voor zo lang of kort als u maar wilt. Van een dag tot een paar maanden: wij hebben altijd de perfecte huurauto voor u paraat. Dat is te danken aan ons zeer ruime wagenpark. En ons stevige netwerk draagt daar uiteraard ook zijn steentje aan bij. Niet voor niks zijn wij al jarenlang dé partner in autoverhuur.
+                <div class="col-sm-12 col-md-12">
+                <p class="overons">Bij Rent-a-Car Autoverhuur & Shortlease kunt u terecht voor het huren van een auto, voor zo lang of kort als u maar wilt. Van een dag tot een paar maanden: wij hebben altijd de perfecte huurauto voor u paraat. Dat is te danken aan ons zeer ruime wagenpark. En ons stevige netwerk draagt daar uiteraard ook zijn steentje aan bij. Niet voor niks zijn wij al jarenlang dé partner in autoverhuur.
 
                     Ons werk draait om u. Dat merkt u als u met INQAR in zee gaat. Onze kennis van (huur)auto’s helpt u altijd aan het ideale vervoermiddel, wat uw budget ook is. Wij bieden voor ieder type en klasse huurauto een scherpe prijs en onze auto’s zijn altijd goed onderhouden en veilig. Wel zo belangrijk.</>
             </div>
