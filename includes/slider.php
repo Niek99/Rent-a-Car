@@ -36,18 +36,18 @@
                                     <p>Maar 85 euro per dag</p>
                                 </div>
                                 <form>
-                                    <input type="hidden" value="18-YY-GG" name="kenteken">
+                                    <input type="hidden" value="18-YY-GG" name="kenteken7">
                                     <label for="from">Van</label>
                                     <input type="date" id="from" name="from"><br>
                                     <label for="to">Tot:</label>
                                     <input type="date" id="to" name="to"><br>
-                                    <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden">Verder</button>
+                                    <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden4">Verder</button>
                                 </form>
                                 <?php
-                                if(isset($_POST['verzenden'])){
+                                if(isset($_POST['verzenden4'])){
                                     $vanafdatum = $_POST['from'];
                                     $totdatum = $_POST['to'];
-                                    $kenteken = $_POST['kenteken'];
+                                    $kenteken = $_POST['kenteken7'];
 
                                     //roep hier de functie aan die de reservering toe gaat voegen.
                                     require_once ("classes/reserveerAuto.php");
@@ -83,18 +83,18 @@
                             <p>Maar 85 euro per dag</p>
                         </div>
                         <form>
-                            <input type="hidden" value="11-PO-TT" name="kenteken">
+                            <input type="hidden" value="11-PO-TT" name="kenteken5">
                             <label for="from">Van</label>
                             <input type="date" id="from" name="from"><br>
                             <label for="to">Tot:</label>
                             <input type="date" id="to" name="to"><br>
-                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden1">Verder</button>
+                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden5">Verder</button>
                         </form>
                         <?php
-                        if(isset($_POST['verzenden1'])){
+                        if(isset($_POST['verzenden5'])){
                             $vanafdatum = $_POST['from'];
                             $totdatum = $_POST['to'];
-                            $kenteken = $_POST['kenteken'];
+                            $kenteken = $_POST['kenteken5'];
 
                             //roep hier de functie aan die de reservering toe gaat voegen.
                             require_once ("classes/reserveerAuto.php");
@@ -129,18 +129,18 @@
                             <p>Maar 100 euro per dag</p>
                         </div>
                         <form>
-                            <input type="hidden" value="23-67-RW" name="kenteken">
+                            <input type="hidden" value="23-67-RW" name="kenteken6">
                             <label for="from">Van</label>
                             <input type="date" id="from" name="from"><br>
                             <label for="to">Tot:</label>
                             <input type="date" id="to" name="to"><br>
-                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden2">Verder</button>
+                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden6">Verder</button>
                         </form>
                         <?php
-                        if(isset($_POST['verzenden2'])){
+                        if(isset($_POST['verzenden6'])){
                             $vanafdatum = $_POST['from'];
                             $totdatum = $_POST['to'];
-                            $kenteken = $_POST['kenteken'];
+                            $kenteken = $_POST['kenteken6'];
 
                             //roep hier de functie aan die de reservering toe gaat voegen.
                             require_once ("../classes/reserveerAuto.php");
