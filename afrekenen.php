@@ -29,9 +29,12 @@ $result = mysqli_query($mysqli,"SELECT * FROM klant WHERE Klant_nummer = '" . $n
         $_SESSION['totaal'] = $row->Totaal_prijs;
     }
 
+
 $auto = mysqli_query($mysqli,"SELECT * FROM auto WHERE kenteken = '" . $_SESSION['kenteken'] . "'");
 
-while ($row = mysqli_fetch_object($auto)) {
+
+
+while ($row  = mysqli_fetch_object($auto)) {
     $_SESSION['merk'] = $row->Merk;
     $_SESSION['type'] = $row->Type;
     $_SESSION['prijsperdag'] = $row->Prijs_per_dag;
@@ -80,16 +83,15 @@ while ($row = mysqli_fetch_object($auto)) {
                         <th>Totaal</th>
                     </tr>
                     <tr>
-                        <td><?php echo $_SESSION['kenteken']?></td>
-                        <td><?php echo $_SESSION['merk']?></td>
-                        <td><?php echo $_SESSION['type']?></td>
-                        <td><?php echo $_SESSION['vanafdatum'] . " t/m " . $_SESSION['einddatum']?></td>
-                        <td><?php echo $_SESSION['prijsperdag']?></td>
-                        <td><?php echo $_SESSION['totaal']?></td>
+                        <td><?php echo  $_SESSION['kenteken'] ?></td>
+                        <td><?php echo  $_SESSION['merk'] ?></td>
+                        <td><?php  echo $_SESSION['type'] ?></td>
+                        <td><?php echo $_SESSION['vanafdatum'] . " t/m " . $_SESSION['einddatum']; ?></td>
+                        <td><?php echo  $_SESSION['prijsperdag'] ?></td>
+                        <td><?php echo $_SESSION['totaal'] ?></td>
                     </tr>
-
                 </table><br><br>
-                <p>
+            <p>
                     Betalingen dienen plaats te vinden veertien dagen voor de aanvang van de gereserveerde periode<br>
                     Betalingen kunnen gedaan worden via Ideal of worden gestort op rekeningnummer 3210808<br>
                     Indien er gereserveerd is binnen veerdien dagen voor de aanvang van de gereserveerde periode,<br>
@@ -98,4 +100,19 @@ while ($row = mysqli_fetch_object($auto)) {
             </div>
         </body >
     </html>
-
+<?php
+unset($_SESSION['kenteken']);
+unset($_SESSION['merk']);
+unset($_SESSION['type']);
+unset($_SESSION['vanafdatum']);
+unset($_SESSION['einddatum']);
+unset($_SESSION['prijsperdag']);
+unset($_SESSION['totaal']);
+unset($_SESSION['Naam']);
+unset($_SESSION['Adres']);
+unset($_SESSION['Woonplaats']);
+unset($_SESSION['Postcode']);
+unset($_SESSION['behandelaar']);
+unset($_SESSION['Factuur']);
+unset($_SESSION['datum']);
+?>

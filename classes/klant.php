@@ -193,9 +193,12 @@ class klant
         }
     }
 
-    function loguit(){
+    function winkelwagen(){
+        require_once("Database.php");
         $DBconnect = new Database();
         $DBconnect->ConnectToDB("root", "", "Rent-a-Car");
+
+        echo"hier heb jij je winkelwagentje modafuckah";
     }
 
     function profiel (){
