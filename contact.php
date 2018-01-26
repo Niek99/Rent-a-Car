@@ -1,7 +1,7 @@
 <?php
     include "includes/header.php";
     ?>
-<html>
+<html xmlns:mail="http://www.w3.org/1999/xhtml">
 <script>
     $(document).ready(function(){
     $('#characterLeft').text('140 characters left');
@@ -27,7 +27,7 @@
         <div class="container1">
             <div class="col-md-5">
                 <div class="form-area">
-                    <form role="form">
+                    <form  method="post" role="form" action="mailto:milantenhave@hotmail.com">
                         <br style="clear:both">
                         <h3 style="margin-bottom: 25px; text-align: center;">Vul hier uw gegevens in!</h3>
                         <div class="form-group">
@@ -47,7 +47,7 @@
                             <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                         </div>
 
-                        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+                        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Neem contact op</button>
                     </form>
                 </div>
             </div>
