@@ -57,8 +57,8 @@ class klant
                 if ($row = mysqli_fetch_array($result)) {
                     $_SESSION['usr_id'] = $row['Klant_nummer'];
                     $_SESSION['usr_name'] = $row['Naam'];
-                    header("refresh: 0");
 
+                    header("Refresh:0; url=index.php");
                 } else {
                     $errormsg = "Wacht of gebruikersnaam fout.";
                     echo $errormsg;
