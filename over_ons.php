@@ -4,7 +4,7 @@
 <html>
     <body>
         <div class="container">
-            <div style="padding-top: 10px; height: 50% !important; "class="container1">
+            <div style="padding-top: 10px; height: 60% !important; "class="container1">
                 <div class="bedrijf col-md-6">
                     <img class="col-md-12"src="assets/img/autoverhuur.jpg">
             </div>

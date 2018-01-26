@@ -202,7 +202,51 @@ class klant
     }
 
     function profiel (){
-        $DBconnect = new Database();
-        $DBconnect->ConnectToDB("root", "", "Rent-a-Car");
+        // maak de database connectie
+            require_once("Database.php");
+            $DBconnect = new Database();
+            $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
+
+        include "includes/header.php";
+        ?>
+            <html>
+                <body>
+                    <div class="container">
+                        <div class="container1">
+                            <h3>Alle ingevoerde informatie</h3>
+                                    <div class="col-md-12">
+                                    <?php
+                                        echo "<h3>Een lijst met alle facturen</h3>";
+                                        $result = mysqli_query($mysqli, "SELECT * FROM reservering ORDER BY Factuurnummer DESC");
+                                       ?>
+                                        <table border="1" class="" style="width: 80%;">
+                                            <tr>
+                                                <th class="manage-column column-name column-primary">Factuurnummer</th>
+                                                <th class="manage-column column-name column-primary">Kenteken</th>
+                                                <th class="manage-column column-name column-primary">Vanaf datum</th>
+                                                <th class="manage-column column-name column-primary">Tot datum</th>
+                                                <th class="manage-column column-name column-primary">Totaal prijs</th>
+                                                <th class="manage-column column-name column-primary">Betaald</th>
+                                                <th class="manage-column column-name column-primary">Betaling gedaan</th>
+                                            </tr>
+
+                                        <?php
+                                        while ($row = mysqli_fetch_object($result)) {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $row->Factuurnummer; ?></td>
+                                                <td><?php echo $row->Kenteken; ?></td>
+                                                <td><?php echo $row->Vanaf_datum; ?></td>
+                                                <td><?php echo $row->Eind_datum; ?></td>
+                                                <td><?php echo $row->Totaal_prijs . " Euro"; ?></td>
+                                                <td><?php echo $row->Betaald; ?></td>
+                                            </tr>
+                                        </div>
+                                    </div>
+                            </div>
+                    </body>
+            </html>
+        <?php
+        include "includes/footer.php";
     }
 }

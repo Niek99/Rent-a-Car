@@ -93,7 +93,7 @@ while ($row  = mysqli_fetch_object($auto)) {
                 </table><br><br>
             <p>
                     Betalingen dienen plaats te vinden veertien dagen voor de aanvang van de gereserveerde periode<br>
-                    Betalingen kunnen gedaan worden via Ideal of worden gestort op rekeningnummer 3210808<br>
+                Betalingen kunnen gedaan worden via Ideal of worden gestort op rekeningnummer <strong>3210808</strong><br>
                     Indien er gereserveerd is binnen veerdien dagen voor de aanvang van de gereserveerde periode,<br>
                     Dient de betaling direct plaats te vinden.
                 </p>

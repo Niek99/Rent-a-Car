@@ -50,16 +50,18 @@
                             <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                         </div>
 
-                        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Neem contact op</button>
+                        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" style="margin-bottom: 20px;">Neem contact op</button>
                     </form>
                 </div>
-                <div class="col-md-5">
-                    <div id="map" style="width:400px;height:400px;background:yellow">
+            </div>
+                <div class="col-md-6">
+                    <div id="map" style="width:550px;height:500px;background:yellow; margin-top: 20px;">
 
                     </div>
                 </div>
                 <script>
                     function myMap() {
+
                         var mapCanvas = document.getElementById("map");
                         var mapOptions = {
                             center: new google.maps.LatLng(52.243726, 6.192006), zoom: 15

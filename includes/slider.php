@@ -25,7 +25,7 @@
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_left">
 
-                        <div data-animation="animated zoomInRight" class="col-sm-2 col-md-2">
+                        <div data-animation="animated zoomInRight" class="col-sm-3 col-md-3">
 
                             <h1 style="color: white">BMW 323</h1><br>
                             <div  class="thumbnail">
@@ -40,7 +40,7 @@
                                     <input type="date" id="from" name="from"><br>
                                     <label for="to">Tot:</label>
                                     <input type="date" id="to" name="to"><br>
-                                    <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden4">Verder</button>
+                                    <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden4">Verder</button><a href="bmw323.php" class="btn btn-default" role="button" style="margin-bottom: 15px; margin-left: 5px; margin-top: 20px;">Meer informatie</a>
                                 </form>
                                 <?php
                                 if(isset($_POST['verzenden4'])){
@@ -72,7 +72,7 @@
             <!-- Slide Text Layer -->
             <div class="slide-text slide_style_left">
 
-                <div data-animation="animated zoomInRight" class="col-sm-2 col-md-2">
+                <div data-animation="animated zoomInRight" class="col-sm-3 col-md-3">
 
                     <h1 style="color: white">BMW 730</h1><br>
                     <div  class="thumbnail">
@@ -87,7 +87,7 @@
                             <input type="date" id="from" name="from"><br>
                             <label for="to">Tot:</label>
                             <input type="date" id="to" name="to"><br>
-                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden5">Verder</button>
+                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden5">Verder</button><a href="bmw730.php" class="btn btn-default" role="button" style="margin-bottom: 15px; margin-left: 5px; margin-top: 20px;">Meer informatie</a>
                         </form>
                         <?php
                         if(isset($_POST['verzenden5'])){
@@ -118,7 +118,7 @@
             <!-- Slide Text Layer -->
             <div class="slide-text slide_style_left">
 
-                <div data-animation="animated zoomInRight" class="col-sm-2 col-md-2">
+                <div data-animation="animated zoomInRight" class="col-sm-3 col-md-3">
 
                     <h1 style="color: white">BMW 525</h1><br>
                     <div  class="thumbnail">
@@ -133,7 +133,7 @@
                             <input type="date" id="from" name="from"><br>
                             <label for="to">Tot:</label>
                             <input type="date" id="to" name="to"><br>
-                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden6">Verder</button>
+                            <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden6">Verder</button><a href="bmw525.php" class="btn btn-default" role="button" style="margin-bottom: 15px; margin-left: 5px; margin-top: 20px;">Meer informatie</a>
                         </form>
                         <?php
                         if(isset($_POST['verzenden6'])){

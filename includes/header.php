@@ -23,7 +23,7 @@
 <div>
     <nav class="navbar navbar-default navigation-clean" style="background-color: #0081cc;">
         <div class="container">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.php" style="color:rgba(255,255,255,0.843137);">Rent-a-Car</a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.php" style="color:rgba(255,255,255,0.843137);"><img src="assets/img/logo.png" style="height: 60px; width: auto; margin-top: -15px;"> </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -40,7 +40,7 @@
                             <ul class="dropdown-menu">
                                 <div class="modal-dialog">
                                     <div class="loginmodal-container">
-                                        <li role="presentation"><a href="?winkelwagen=true" style="color:rgb(0,0,0); padding-bottom: 20px;">Bekijk hier uw winkelwagentje </a></li>
+                                        <li role="presentation"><a href="?profiel=true" style="color:rgb(0,0,0); margin-bottom: 15px;">Klik hier voor alle profiel informatie</a></li>
                                         <li role="presentation"><a href="?hello=true" style="color:rgb(0,0,0);">Klik hier om uit te loggen</a></li>
                                     </div>
                                 </div>
@@ -52,10 +52,8 @@
 
                                 header("refresh: 0");
                             }
-
-                            if (isset($_GET['winkelwagen'])) {
-
-                                header("Refresh:0; url=winkelwagen.php");
+                            if (isset($_GET['profiel'])) {
+                                header("Refresh:0; url=profiel.php");
                             }
 
                         }
