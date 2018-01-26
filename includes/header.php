@@ -23,11 +23,12 @@
 <div>
     <nav class="navbar navbar-default navigation-clean" style="background-color: #0081cc;">
         <div class="container">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.php" style="color:rgba(255,255,255,0.843137);"><img src="assets/img/logo.png" style="height: 60px; width: auto; margin-top: -15px;"> </a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.php" style="color:rgba(255,255,255,0.843137);">Rent-a-Car</a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
+
                     <li role="presentation"><a href="index.php" style="color:rgb(255,255,255);">Homepagina</a></li>
                     <li role="presentation"><a href="over_ons.php" style="color:rgb(255,255,255);">Over ons</a></li>
                     <li role="presentation"><a href="contact.php" style="color:rgb(255,255,255);">Contact</a></li>
@@ -44,6 +45,7 @@
                                         <li role="presentation"><a href="?hello=true" style="color:rgb(0,0,0);">Klik hier om uit te loggen</a></li>
                                     </div>
                                 </div>
+
                             </ul>
                             <?php
                             if (isset($_GET['hello'])) {
@@ -69,6 +71,7 @@
                         ?>
                     </li>
                 </ul>
+                <p style="vertical-align: middle;border-radius: 2px; padding: 2px; color:rgb(255,255,255); margin-top: 10px;"><b>Lochemseweg 128b <br> 7217 RK Harfsen</b></p>
             </div>
         </div>
     </nav>
