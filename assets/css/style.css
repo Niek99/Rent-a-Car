@@ -92,10 +92,9 @@
 }
 .product_picture{
     float: left;
-    max
 }
 .product_text{
-    float: left;
+    float: right;
     margin-top: 5px;
 }
 .ingelogd{
