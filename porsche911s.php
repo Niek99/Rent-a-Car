@@ -52,7 +52,7 @@ include "includes/head.php";
         <div class="lenen_box col-sm-6 col-md-6">
             <div  class="thumbnail">
                 <div class="caption" style="text-align: center">
-                    <h3>Audi A4 2016</h3>
+                    <h3>Porsche 911s</h3>
                     <p>Maar 500 euro per maand!</p>
                 </div>
                 <form action="" method="post" fun>
@@ -60,7 +60,7 @@ include "includes/head.php";
                     <input type="date" format="yyyy-mm-dd" id="" name="from"><br>
                     <label for="to">Tot:</label>
                     <input type="date" format="yyyy-mm-dd" id="" name="to"><br>
-                    <input type="hidden" name="kenteken" value="11-PO-TT">
+                    <input type="hidden" name="kenteken" value="89-PE-TT">
                     <input style="margin-top: 5px;" type="submit" name="verzenden" value="Verder">
                 </form>
                 <?php

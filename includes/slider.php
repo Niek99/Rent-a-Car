@@ -68,7 +68,7 @@
         <div class="item">
 
             <!-- Slide Background -->
-            <img src="http://cdn.bmwblog.com/wp-content/uploads/2015/08/2016-bmw-730d-images-1900x1200-08.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
+            <img src="assets/img/bmw730.jpg" alt="Bootstrap Touch Slider"  class="slide-image"/>
             <div class="bs-slider-overlay"></div>
             <!-- Slide Text Layer -->
             <div class="slide-text slide_style_left">

@@ -168,7 +168,7 @@ class klant
 
             //voeg alles toe aan de data base. zorg er ook voor dat het veilig is.
             $invoegen = mysqli_query($mysqli, "INSERT INTO klant(Naam, Adres, Postcode, Woonplaats, Email_adres, Telefoon_nummer, Wachtwoord) VALUES('$naam', '$adres', '$postcode', '$woonplaats', '$mail', '$telefoon', '$wachtwoord')");
-            //mysqli_error($mysqli);
+            mysqli_error($mysqli);
             if($invoegen)
             {
                 ?>
@@ -184,7 +184,7 @@ class klant
                 echo "Er is helaas iets mis gegaan probeer het opnieuw";
 
             }
-            //printf("Errormessage: %s\n", $mysqli->error);
+            printf("Errormessage: %s\n", $mysqli->error);
             $mysqli->close();
 
         }
