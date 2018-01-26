@@ -70,7 +70,7 @@ include "includes/head.php";
                     $kenteken = $_POST['kenteken'];
 
                     //roep hier de functie aan die de reservering toe gaat voegen.
-                    require_once ("classes/reserveerAuto.php");
+                    require_once("classes/reserveerAuto.php");
                     $registreren = new reserveerAuto();
                     $laatzien = $registreren->toevoegen($vanafdatum, $totdatum, $kenteken);
                     echo $laatzien;
