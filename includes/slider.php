@@ -1,6 +1,7 @@
 <?php
-    include"head.php";
+    include "head.php";
 ?>
+
 <div id="bootstrap-touch-slider" class="carousel bs-slider slide  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="15000" >
 
     <!-- Indicators -->
@@ -24,7 +25,9 @@
                 <div class="row">
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_left">
-
+                        <?php
+                        $mindate = date('Y-m-d');
+                        ?>
                         <div data-animation="animated zoomInRight" class="col-sm-3 col-md-3">
 
                             <h1 style="color: white">BMW 323</h1><br>
@@ -37,9 +40,9 @@
                                 <form action="" method="post">
                                     <input type="hidden" value="18-YY-GG" name="kenteken7">
                                     <label for="from">Van</label>
-                                    <input type="date" id="from" name="from"><br>
+                                    <input type="date" id="from" name="from" min="<?php echo $mindate?>"><br>
                                     <label for="to">Tot:</label>
-                                    <input type="date" id="to" name="to"><br>
+                                    <input type="date" id="to" name="to" min="<?php echo $mindate?>"><br>
                                     <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden4">Verder</button><a href="bmw323.php" class="btn btn-default" role="button" style="margin-bottom: 15px; margin-left: 5px; margin-top: 20px;">Meer informatie</a>
                                 </form>
                                 <?php
@@ -84,9 +87,9 @@
                         <form action="" method="post">
                             <input type="hidden" value="11-PO-TT" name="kenteken5">
                             <label for="from">Van</label>
-                            <input type="date" id="from" name="from"><br>
+                            <input type="date" id="from" name="from" min="<?php echo $mindate?>"><br>
                             <label for="to">Tot:</label>
-                            <input type="date" id="to" name="to"><br>
+                            <input type="date" id="to" name="to" min="<?php echo $mindate?>"><br>
                             <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden5">Verder</button><a href="bmw730.php" class="btn btn-default" role="button" style="margin-bottom: 15px; margin-left: 5px; margin-top: 20px;">Meer informatie</a>
                         </form>
                         <?php
@@ -130,9 +133,9 @@
                         <form action="" method="post">
                             <input type="hidden" value="23-67-RW" name="kenteken6">
                             <label for="from">Van</label>
-                            <input type="date" id="from" name="from"><br>
+                            <input type="date" id="from" name="from" min="<?php echo $mindate?>"><br>
                             <label for="to">Tot:</label>
-                            <input type="date" id="to" name="to"><br>
+                            <input type="date" id="to" name="to" min="<?php echo $mindate?>"><br>
                             <button class="btn btn-primary" style="margin-top: 5px;" type="submit" name="verzenden6">Verder</button><a href="bmw525.php" class="btn btn-default" role="button" style="margin-bottom: 15px; margin-left: 5px; margin-top: 20px;">Meer informatie</a>
                         </form>
                         <?php

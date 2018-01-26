@@ -6,6 +6,7 @@
 ?>
 <head>
     <link rel="stylesheet" href="assets/css/dropdown.css">
+
 </head>
 <script>
     $(window).scroll(function(e){
@@ -23,7 +24,7 @@
 <div>
     <nav class="navbar navbar-default navigation-clean" style="background-color: #0081cc;">
         <div class="container">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.php" style="color:rgba(255,255,255,0.843137);"><img src="assets/img/logo.png" style="height: 60px; width: auto; margin-top: -15px;"> </a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.php" style="color:rgba(255,255,255,0.843137);">Rent-a-Car</a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -69,6 +70,8 @@
                         ?>
                     </li>
                 </ul>
+                <p style="vertical-align: middle; padding: 2px; color: white; margin-top: 10px;">Apeldoornseweg 12<br />
+                    7217 RK Apeldoorn</p>
             </div>
         </div>
     </nav>

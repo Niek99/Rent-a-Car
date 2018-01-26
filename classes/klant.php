@@ -47,7 +47,7 @@ class klant
             $DBconnect = new Database();
             $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
-            //check if form is submitted
+            //check of het form verzonden is.
             if (isset($_POST['login'])) {
 
                 $email = mysqli_real_escape_string($mysqli, $_POST['user']);
@@ -136,59 +136,58 @@ class klant
         </html>
         <?php
         if(isset($_POST['verzend'])){
-            //error_reporting(0);
-            // set alle variablen zodat ze aan de database toegevoegd kunnen worden.
-            $naam = $_POST['naam'];
-            $adres = $_POST['adres'];
-            $postcode = $_POST['postcode'];
-            $woonplaats = $_POST['woonplaats'];
-            $mail = $_POST['mail'];
-            $telefoon = $_POST['telefoon'];
-            $wachtwoord = $_POST['wachtwoord'];
-
             // maak de database connectie
             require_once("Database.php");
             $DBconnect = new Database();
             $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
-            //Maak hier het getal aan voor het klanten nummer. en controleer of deze al in gebruik is
-            /*$cijfer = "00000000";
-            $query = "SELECT Klant_nummer FROM klant";
-            $results=mysqli_query($mysqli, $query);
-            $resultss = end($results);
-            $startcount = (int)$cijfer;
-            $resultaat = (int)$resultss;
-            if($startcount <= $resultaat ){
-                $resultaat + 1;
-                $eind = (string)$resultaat;
-            }
-            else{
-                $resultaat = $cijfer;
-            }
-            echo $eind;*/
+            //error_reporting(0);
+            // set alle variablen zodat ze aan de database toegevoegd kunnen worden.
+            $naam = mysqli_real_escape_string($mysqli, $_POST['naam']);
+            $adres = mysqli_real_escape_string($mysqli, $_POST['adres']);
+            $postcode = mysqli_real_escape_string($mysqli, $_POST['postcode']);
+            $woonplaats = mysqli_real_escape_string($mysqli, $_POST['woonplaats']);
+            $mail = mysqli_real_escape_string($mysqli, $_POST['mail']);
+            $telefoon = mysqli_real_escape_string($mysqli, $_POST['telefoon']);
+            $wachtwoord = mysqli_real_escape_string($mysqli, $_POST['wachtwoord']);
 
-            //voeg alles toe aan de data base. zorg er ook voor dat het veilig is.
-            $invoegen = mysqli_query($mysqli, "INSERT INTO klant(Naam, Adres, Postcode, Woonplaats, Email_adres, Telefoon_nummer, Wachtwoord) VALUES('$naam', '$adres', '$postcode', '$woonplaats', '$mail', '$telefoon', '$wachtwoord')");
-            //mysqli_error($mysqli);
-            if($invoegen == "1")
-            {
+                //Maak hier het getal aan voor het klanten nummer. en controleer of deze al in gebruik is
+                /*$cijfer = "00000000";
+                $query = "SELECT Klant_nummer FROM klant";
+                $results=mysqli_query($mysqli, $query);
+                $resultss = end($results);
+                $startcount = (int)$cijfer;
+                $resultaat = (int)$resultss;
+                if($startcount <= $resultaat ){
+                    $resultaat + 1;
+                    $eind = (string)$resultaat;
+                }
+                else{
+                    $resultaat = $cijfer;
+                }
+                echo $eind;*/
+
+                //voeg alles toe aan de data base. zorg er ook voor dat het veilig is.
+                $invoegen = mysqli_query($mysqli, "INSERT INTO klant(Naam, Adres, Postcode, Woonplaats, Email_adres, Telefoon_nummer, Wachtwoord) VALUES('$naam', '$adres', '$postcode', '$woonplaats', '$mail', '$telefoon', '$wachtwoord')");
+                //mysqli_error($mysqli);
+                if ($invoegen == "1") {
                     $_SESSION['usr_id'] = mysqli_insert_id($mysqli);
                     $_SESSION['usr_name'] = $naam;
-                ?>
+                    ?>
                     <div class="ingelogd">
                         <h1>U bent succesvol ingelogd!</h1>
-                        <a href="index.php"><button class="btn btn-lg btn-info">Klik hier om terug te gaan naar de homepagina!</button></a>
+                        <a href="index.php">
+                            <button class="btn btn-lg btn-info">Klik hier om terug te gaan naar de homepagina!</button>
+                        </a>
                     </div>
 
-                <?php
-            }
-            else
-            {
-                echo "Er is helaas iets mis gegaan probeer het opnieuw";
+                    <?php
+                } else {
+                    echo "Er is helaas iets mis gegaan probeer het opnieuw";
 
-            }
-            //printf("Errormessage: %s\n", $mysqli->error);
-            $mysqli->close();
+                }
+                //printf("Errormessage: %s\n", $mysqli->error);
+                $mysqli->close();
 
         }
     }
@@ -201,52 +200,101 @@ class klant
         echo"hier heb jij je winkelwagentje modafuckah";
     }
 
-    function profiel (){
-        // maak de database connectie
-            require_once("Database.php");
-            $DBconnect = new Database();
-            $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
+    function profiel ()
+    {
+            // maak de database connectie
+                require_once("Database.php");
+                $DBconnect = new Database();
+                $mysqli = $DBconnect->ConnectToDB("root", "", "rent-a-car");
 
-        include "includes/header.php";
-        ?>
-            <html>
-                <body>
-                    <div class="container">
-                        <div class="container1">
-                            <h3>Alle ingevoerde informatie</h3>
-                                    <div class="col-md-12">
-                                    <?php
-                                        echo "<h3>Een lijst met alle facturen</h3>";
-                                        $result = mysqli_query($mysqli, "SELECT * FROM reservering ORDER BY Factuurnummer DESC");
-                                       ?>
-                                        <table border="1" class="" style="width: 80%;">
-                                            <tr>
-                                                <th class="manage-column column-name column-primary">Factuurnummer</th>
-                                                <th class="manage-column column-name column-primary">Kenteken</th>
-                                                <th class="manage-column column-name column-primary">Vanaf datum</th>
-                                                <th class="manage-column column-name column-primary">Tot datum</th>
-                                                <th class="manage-column column-name column-primary">Totaal prijs</th>
-                                                <th class="manage-column column-name column-primary">Betaald</th>
-                                                <th class="manage-column column-name column-primary">Betaling gedaan</th>
-                                            </tr>
-
+            include "includes/header.php";
+            ?>
+                <html>
+                    <body>
+                        <div class="container">
+                            <div class="container1">
+                                <h3>Alle ingevoerde informatie</h3>
                                         <?php
-                                        while ($row = mysqli_fetch_object($result)) {
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $row->Factuurnummer; ?></td>
-                                                <td><?php echo $row->Kenteken; ?></td>
-                                                <td><?php echo $row->Vanaf_datum; ?></td>
-                                                <td><?php echo $row->Eind_datum; ?></td>
-                                                <td><?php echo $row->Totaal_prijs . " Euro"; ?></td>
-                                                <td><?php echo $row->Betaald; ?></td>
-                                            </tr>
-                                        </div>
-                                    </div>
-                            </div>
-                    </body>
-            </html>
-        <?php
-        include "includes/footer.php";
+                                            $result = mysqli_query($mysqli, "SELECT * FROM klant WHERE Klant_nummer ='" . $_SESSION['usr_id'] ."'");
+                                           ?>
+                                            <table border="1" class="" style="width: 80%;">
+                                                <tr>
+                                                    <th class="manage-column column-name column-primary">Naam</th>
+                                                    <th class="manage-column column-name column-primary">Adres</th>
+                                                    <th class="manage-column column-name column-primary">Postcode</th>
+                                                    <th class="manage-column column-name column-primary">Woonplaats</th>
+                                                    <th class="manage-column column-name column-primary">Email</th>
+                                                    <th class="manage-column column-name column-primary">Telefoon nummer</th>
+                                                </tr>
+
+                                            <?php
+                                            while ($row = mysqli_fetch_object($result)) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $row->Naam; ?></td>
+                                                    <td><?php echo $row->Adres; ?></td>
+                                                    <td><?php echo $row->Postcode; ?></td>
+                                                    <td><?php echo $row->Woonplaats; ?></td>
+                                                    <td><?php echo $row->Email_adres; ?></td>
+                                                    <td><?php echo $row->Telefoon_nummer; ?></td>
+                                                </tr>
+                                                <?php }?>
+                                                </table>
+                                                <h3>Een lijst met alle factures die u gehad heeft</h3>
+                                                <?php
+                                                $result = mysqli_query($mysqli, "SELECT * FROM factuur WHERE Klant_nummer ='" . $_SESSION['usr_id'] . "'");
+                                                $sidemenus = array();
+                                                while($sidemenu = mysqli_fetch_object($result)){
+                                                    $sidemenus[] = $sidemenu;
+                                                }
+                                                //$result = mysqli_query($mysqli, "SELECT * FROM factuur WHERE Klant_nummer ='" . $_SESSION['usr_id'] . "'");
+                                                $sidemenus2 = array();
+                                                foreach($sidemenus as $gek){
+                                                    $result = mysqli_query($mysqli, "SELECT * FROM reservering WHERE Factuurnummer ='" . $gek->Factuurnummer . "'");
+
+
+
+                                                    while($sidemenu2 = mysqli_fetch_object($result)){
+                                                        $sidemenus2[] = $sidemenu2;
+                                                    }
+                                                }
+                                               // print_r($sidemenus);
+                                                //print_r($sidemenus2);
+                                               // $gekke_array = array_merge($sidemenus, $sidemenus2);
+                                                ?>
+                                                <table border="1" class="" style="width: 80%;">
+                                                <tr>
+                                                    <th class="manage-column column-name column-primary">Factuurnummer</th>
+                                                    <th class="manage-column column-name column-primary">Kenteken</th>
+                                                    <th class="manage-column column-name column-primary">Vafaf Datum</th>
+                                                    <th class="manage-column column-name column-primary">Tot Datum</th>
+                                                    <th class="manage-column column-name column-primary">Totaal prijs</th>
+                                                    <th class="manage-column column-name column-primary">Betaald
+                                                    </th>
+                                                </tr>
+
+                                                <?php
+                                                foreach ($sidemenus2 as $gekkie) {
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $gekkie->Factuurnummer; ?></td>
+                                                        <td><?php echo $gekkie->Kenteken; ?></td>
+                                                        <td><?php echo $gekkie->Vanaf_datum; ?></td>
+                                                        <td><?php echo $gekkie->Eind_datum; ?></td>
+                                                        <td><?php echo $gekkie->Totaal_prijs . " Euro"; ?></td>
+                                                        <td><?php echo $gekkie->Betaald; ?></td>
+                                                    </tr>
+                                                    <?php } ?>
+                                                    </table>
+
+                                                    </div>
+                                                    </div>
+                                                    </body>
+                                                    </html>
+                                                    <?php
+
+                                                //include "includes/footer.php";
+
+
     }
 }

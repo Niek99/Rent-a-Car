@@ -12,4 +12,5 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
 </head>
